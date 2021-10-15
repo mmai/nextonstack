@@ -2,7 +2,7 @@
 
 let
   # phpIni = (import ./phpini.nix) {inherit pkgs ;};
-  myPhp = pkgs.php.buildEnv {
+  myPhp = pkgs.php80.buildEnv {
     # extensions = { all, ... }: with all; [ ];
     extraConfig = ''
       post_max_size=50M
@@ -12,7 +12,7 @@ let
   };
 in
 {
-  buildInputs = with pkgs; [ myPhp php74Packages.composer ];
+  buildInputs = with pkgs; [ myPhp php80Packages.composer ];
 
   shellInit = ''
     export COMPOSER_MEMORY_LIMIT=-1

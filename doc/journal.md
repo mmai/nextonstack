@@ -4,7 +4,7 @@
 symfony new nextonstack --full ; cd nextonstack # Création du projet avec toutes les outils utiles à un site web classique
 ```
 
-Indiquer les paramêtres de connexion à la bdd et au serveur smtp dans le fichier **.env**
+Indiquer les paramêtres de connexion à la bdd et au serveur smtp dans le fichier **.env.local** en prenant **.env** pour modèle (ne pas éditer directement _.env_ qui est est envoyé dans le repo git)
 
 ```
 symfony console make:user # Création de l'entité de type user pour l'authentification et ajout à la config de sécurité

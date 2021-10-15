@@ -1,7 +1,7 @@
 { pkgs, cfg }:
 
 {
-  buildInputs = with pkgs; [ php ];
+  buildInputs = with pkgs; [ php80 ];
 
   shellInit = ''
     '';
