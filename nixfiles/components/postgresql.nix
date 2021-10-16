@@ -54,4 +54,11 @@
   shellRestore = ''
     psql -h 127.0.0.1 -p ${cfg.port} -f $ROOT_DUMP/psql/dumpall.sql postgres
     '';
+
+  customCommands = ''
+    function sql {
+      psql "postgresql://${cfg.user}:${cfg.password}@127.0.0.1:${cfg.port}/${cfg.name}"
+    }
+    '';
+    
 }

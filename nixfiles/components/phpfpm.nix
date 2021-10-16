@@ -17,4 +17,6 @@
 
   shellRestore = ''
   '';
+  customCommands = ''
+    '';
 }

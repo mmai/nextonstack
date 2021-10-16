@@ -11,7 +11,22 @@ symfony console make:user # Création de l'entité de type user pour l'authentif
 
 symfony console make:migration
 symfony console doctrine:migrations:migrate -n
+```
 
+Insertion de l'utilisateur admin
+- obtenir un mot de passe encodé 
+```
+symfony console security:encode-password
+```
+- puis l'utiliser dans la commande suivante, en échappant les dollars.
+
+```
+echo "INSERT INTO admin (id, username, roles, password) VALUES (nextval('admin_id_seq'), 'admin', '[\"ROLE_ADMIN\"]', \
+  '\$argon2id\$v=19\$m=65536,t=4,p=1\$ubIusG9axbbokHIqCLvxPg\$5+zpfS9PDA/TdlO0749ibpOq/UY6InSmpo93DLs3xcY')" | sql
+```
+
+
+```
 symfony console make:auth # Génère template de connexion et class d'authentification
 
 symfony composer require symfonycasts/verify-email-bundle

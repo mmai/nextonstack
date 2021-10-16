@@ -34,4 +34,7 @@ in
 
   shellRestore = ''
   '';
+
+  customCommands = ''
+    '';
 }

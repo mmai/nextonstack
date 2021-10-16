@@ -9,6 +9,7 @@ let
     shellStopService = builtins.foldl' (a: b: a + b ) "" (map (c: c.shellStopService) components);
     shellDump = builtins.foldl' (a: b: a + b ) "" (map (c: c.shellDump) components);
     shellRestore = builtins.foldl' (a: b: a + b ) "" (map (c: c.shellRestore) components);
+    customCommands = builtins.foldl' (a: b: a + b ) "" (map (c: c.customCommands) components);
   } );
 
   cfg =
@@ -37,6 +38,7 @@ in
 
 mkShell {
   buildInputs = [
+    symfony-cli
     compass.out
     # nodePackages.gulp
     # zlib # needed by optipng
@@ -70,6 +72,8 @@ mkShell {
       echo "*** Restore ***"
       ${components.shellRestore}
     }
+
+    ${components.customCommands}
 
     echo "Start services with 'startServices'"
     echo "Stop services with 'stopServices'"
