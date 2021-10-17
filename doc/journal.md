@@ -18,11 +18,11 @@ Insertion de l'utilisateur admin
 ```
 symfony console security:encode-password
 ```
-- puis l'utiliser dans la commande suivante, en échappant les dollars.
+- puis l'utiliser dans la commande suivante, en échappant les dollars. Le mot de passe est 'admin' dans l'exemple suivant.
 
 ```
-echo "INSERT INTO admin (id, username, roles, password) VALUES (nextval('admin_id_seq'), 'admin', '[\"ROLE_ADMIN\"]', \
-  '\$argon2id\$v=19\$m=65536,t=4,p=1\$ubIusG9axbbokHIqCLvxPg\$5+zpfS9PDA/TdlO0749ibpOq/UY6InSmpo93DLs3xcY')" | sql
+echo "INSERT INTO \"user\" (id, username, roles, password, email, is_verified) VALUES (nextval('user_id_seq'), 'admin', '[\"ROLE_ADMIN\"]', \
+  '\$argon2id\$v=19\$m=65536,t=4,p=1\$ubIusG9axbbokHIqCLvxPg\$5+zpfS9PDA/TdlO0749ibpOq/UY6InSmpo93DLs3xcY', 'admin@nextonstack.com', true)" | sql
 ```
 
 
