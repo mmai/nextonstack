@@ -6,7 +6,6 @@ install: startdb
 	cp .env .env.local
 	symfony composer install
 	symfony console doctrine:migrations:migrate
-	symfony console doctrine:fixtures:load
 startdb:
 	echo "todo : execute 'startServices'"
 stopdb:
@@ -17,3 +16,7 @@ sql:
 	sql
 stop: stopdb
 	symfony server:stop
+compile:
+	yarn encore production
+watch:
+	yarn encore dev --watch

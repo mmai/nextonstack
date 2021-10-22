@@ -78,3 +78,13 @@ return $this->render('@EasyAdmin/page/login.html.twig', [
     // 'remember_me_enabled' => true,
 ]);
 ```
+
+
+
+Gestion des assets avec Encore : 
+```
+symfony composer require symfony/webpack-encore-bundle
+yarn encore dev
+```
+edit _base.html.twig_ , uncomment `{{ encore_entry_link_tags('app') }}` et `{{ encore_entry_script_tags('app') }}`
+
