@@ -52,3 +52,29 @@ edit **config/packages/security.yml** :
       - { path: ^/admin/login, roles: PUBLIC_ACCESS }
       - { path: ^/admin, roles: ROLE_ADMIN }` 
 ```
+
+Utilisation du template de EasyAdmin pour le formulaire de login : edition de src/Controller/SecurityController.php et remplacement de 
+
+```php
+return $this->render('security/login.html.twig', [
+    'last_username' => $lastUsername,
+    'error' => $error
+]);
+```
+
+par 
+
+```php
+//Copié depuis https://symfony.com/bundles/EasyAdminBundle/current/dashboards.html#login-form-template
+return $this->render('@EasyAdmin/page/login.html.twig', [
+    'last_username' => $lastUsername,
+    'error' => $error,
+
+    'username_parameter' => 'username',
+    'password_parameter' => 'password',
+    'csrf_token_intention' => 'authenticate',
+
+    // 'forgot_password_enabled' => true,
+    // 'remember_me_enabled' => true,
+]);
+```

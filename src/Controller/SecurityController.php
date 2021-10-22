@@ -23,7 +23,25 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        //Généré par la commande
+        // return $this->render('security/login.html.twig', [
+        //     'last_username' => $lastUsername,
+        //     'error' => $error
+        // ]);
+
+        //Copié depuis https://symfony.com/bundles/EasyAdminBundle/current/dashboards.html#login-form-template
+        return $this->render('@EasyAdmin/page/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error,
+
+            'username_parameter' => 'username',
+            'password_parameter' => 'password',
+            'csrf_token_intention' => 'authenticate',
+
+            // 'forgot_password_enabled' => true,
+            // 'remember_me_enabled' => true,
+        ]);
+
     }
 
     /**
