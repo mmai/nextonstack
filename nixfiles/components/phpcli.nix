@@ -12,6 +12,8 @@ let
   };
 in
 {
+  name = "phpcli";
+
   buildInputs = with pkgs; [ myPhp php80Packages.composer ];
 
   shellInit = ''

@@ -88,3 +88,8 @@ yarn encore dev
 ```
 edit _base.html.twig_ , uncomment `{{ encore_entry_link_tags('app') }}` et `{{ encore_entry_script_tags('app') }}`
 
+- personalisation index admin : vim src/ControllerAdmin/DashboardController.php > index()
+
+## Page d'accueil
+
+symfony console make:admin:crud

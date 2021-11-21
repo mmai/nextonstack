@@ -7,6 +7,8 @@ let createDb = dbname: ''
     createAllDatabases = builtins.foldl' (a: b: a + b ) "" (map createDb cfg.databases);
 in
 {
+  name = "mysql";
+
   buildInputs = (with pkgs; [ mysql ]);
 
   shellInit = ''

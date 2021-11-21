@@ -56,11 +56,13 @@ mkShell {
     function startServices {
       echo "*** STARTING SERVICES ***"
       ${components.shellStartService}
+      symfony serve -d
     }
 
     function stopServices {
       echo "*** SHUTDOWN SERVICES ***"
       ${components.shellStopService}
+      symfony server stop
     }
 
     function dumpServices {
