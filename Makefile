@@ -17,7 +17,7 @@ sql:
 	sql
 stop: stopdb
 	symfony server:stop
-compile:
-	yarn encore production
 watch:
 	yarn encore dev --watch
+compile:
+	yarn encore production
